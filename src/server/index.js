@@ -1,13 +1,16 @@
 const dotenv = require("dotenv");
 dotenv.config();
 
+const fetch = require("node-fetch");
+
 var path = require("path");
 const express = require("express");
-const mockAPIResponse = require("./mockAPI.js");
+//const mockAPIResponse = require("./mockAPI.js");
 
-const app = express();
+const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key=";
 const API_KEY = process.env.API_KEY;
 
+const app = express();
 app.use(express.static("dist"));
 
 //config express to use body-parser as middle-ware
@@ -36,4 +39,22 @@ app.listen(8080, function () {
 
 app.get("/test", function (req, res) {
   res.send(mockAPIResponse);
+});
+
+getSentiments = async function (url = "") {
+  const response = await fetch(url);
+  try {
+    const newData = await response.json();
+    return newData;
+  } catch (error) {
+    console.log("error", error);
+  }
+};
+
+app.post("/sentiments", async function (req, res) {
+  const full_URL = `${baseURL}${API_KEY}&lang=en&url=${req.body.article_url}&model=general`;
+  console.log(full_URL);
+  const newData = await getSentiments(full_URL);
+  console.log(newData);
+  res.send(newData);
 });

@@ -1,16 +1,59 @@
 function handleSubmit(event) {
-    event.preventDefault()
+  event.preventDefault();
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkForName(formText)
-
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
+  // check what text was put into the form field
+  let formURL = document.getElementById("article_url").value;
+  //checkForName(formText)
+  console.log("1. " + formURL);
+  const postData = async (url = "", data = {}) => {
+    const response = await fetch(url, {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    return response;
+  };
+  //console.log("::: Form Submitted :::")
+  postData("/sentiments", { article_url: formURL })
+    .then((res) => res.json())
+    .then(function (res) {
+      let message =
+        "The different elements of the text have " +
+        (res.agreement === "AGREEMENT"
+          ? "the same polarity."
+          : " different polarity.");
+      message +=
+        res.ironic === "IRONIC"
+          ? " The text has ironic marks."
+          : " The text does not have ironic marks.";
+      message += " Overal tone of the text is <b>";
+      switch (res.score_tag) {
+        case "P+":
+          message += "strong positive.";
+          break;
+        case "P":
+          message += "positive.";
+          break;
+        case "NEU":
+          message += "neutral.";
+          break;
+        case "N":
+          message += "negative.";
+          break;
+        case "N+":
+          message += "strong negative.";
+          break;
+        default:
+          message += "without sentiment.";
+          break;
+      }
+      message += "</b>";
+      document.getElementById("results").innerHTML = message;
+      console.log(res);
+    });
 }
 
-export { handleSubmit }
+export { handleSubmit };

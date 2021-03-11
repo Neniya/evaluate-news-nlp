@@ -12,28 +12,28 @@
     </header>
 
     <main>
+      <h1>Text Sentiment Analysis</h1>
       <section>
-        <form class="" onsubmit="return handleSubmit(event)">
+        <form class="" onsubmit="return Client.handleSubmit(event)">
           <input
-            id="name"
+            id="article_url"
             type="text"
             name="input"
             value=""
-            onblur="onBlur()"
-            placeholder="Name"
+            placeholder="please write an article's URL"
           />
           <input
             type="submit"
             name=""
             value="submit"
-            onclick="return handleSubmit(event)"
-            onsubmit="return handleSubmit(event)"
+            onclick="return Client.handleSubmit(event)"
+            onsubmit="return Client.handleSubmit(event)"
           />
         </form>
       </section>
 
       <section>
-        <strong>Form Results:</strong>
+        <h2><strong>Text Analysis Results:</strong></h2>
         <div id="results"></div>
       </section>
     </main>
