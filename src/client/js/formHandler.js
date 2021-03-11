@@ -21,15 +21,16 @@ function handleSubmit(event) {
     .then((res) => res.json())
     .then(function (res) {
       let message =
-        "The different elements of the text have " +
+        "The different elements of the text have <strong>" +
         (res.agreement === "AGREEMENT"
           ? "the same polarity."
           : " different polarity.");
+      message += "</strong>";
       message +=
         res.ironic === "IRONIC"
-          ? " The text has ironic marks."
-          : " The text does not have ironic marks.";
-      message += " Overal tone of the text is <b>";
+          ? " The text <strong>has ironic marks.</strong>"
+          : " The text <strong>does not have ironic marks.</strong>";
+      message += " Overal tone of the text is <strong>";
       switch (res.score_tag) {
         case "P+":
           message += "strong positive.";
@@ -50,7 +51,7 @@ function handleSubmit(event) {
           message += "without sentiment.";
           break;
       }
-      message += "</b>";
+      message += "</strong>";
       document.getElementById("results").innerHTML = message;
       console.log(res);
     });
