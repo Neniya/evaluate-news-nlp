@@ -1,11 +1,10 @@
-function checkForName(inputText) {
+function checkForURL(inputText) {
   let is_validURL = validURL(inputText);
 
-  if (is_validURL !== true) {
-    alert("Please check given URL. It is in incorrect form!");
-    return false;
-  } else {
+  if (is_validURL) {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -19,4 +18,4 @@ function validURL(str) {
   }
 }
 
-export { checkForName };
+export { checkForURL };

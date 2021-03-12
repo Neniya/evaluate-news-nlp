@@ -3,7 +3,8 @@ function handleSubmit(event) {
 
   // check what text was put into the form field
   let formURL = document.getElementById("article_url").value;
-  if (Client.checkForName(formURL) !== true) {
+  if (Client.checkForURL(formURL) !== true) {
+    alert("Please check given URL. It is in incorrect form!");
     return;
   }
 
