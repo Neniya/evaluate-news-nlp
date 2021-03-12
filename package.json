@@ -8,6 +8,9 @@
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack serve  --config webpack.dev.js --open"
   },
+  "engines": {
+    "node": "14.15.4"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
