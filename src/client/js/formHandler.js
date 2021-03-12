@@ -3,8 +3,10 @@ function handleSubmit(event) {
 
   // check what text was put into the form field
   let formURL = document.getElementById("article_url").value;
-  //checkForName(formText)
-  console.log("1. " + formURL);
+  if (Client.checkForName(formURL) !== true) {
+    return;
+  }
+
   const postData = async (url = "", data = {}) => {
     const response = await fetch(url, {
       method: "POST", // *GET, POST, PUT, DELETE, etc.
