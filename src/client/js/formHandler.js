@@ -1,4 +1,7 @@
 function handleSubmit(event) {
+  //clean the result's section
+  document.getElementById("results").innerHTML = "";
+
   event.preventDefault();
 
   // check what text was put into the form field
