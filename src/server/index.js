@@ -7,6 +7,7 @@ var path = require("path");
 const express = require("express");
 //const mockAPIResponse = require("./mockAPI.js");
 
+const PORT = process.env.PORT || 5000;
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key=";
 const API_KEY = process.env.API_KEY;
 
@@ -30,8 +31,8 @@ app.get("/", function (req, res) {
 });
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-  console.log("App listening on port 8080!");
+app.listen(PORT, function () {
+  console.log(`App listening on port ${PORT}!`);
 });
 
 app.get("/test", function (req, res) {
