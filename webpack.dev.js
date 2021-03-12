@@ -7,6 +7,13 @@ module.exports = {
   entry: "./src/client/index.js",
   mode: "development",
   devtool: "source-map",
+  output: {
+    libraryTarget: "var",
+    library: "Client",
+  },
+  devServer: {
+    port: 8080,
+  },
   stats: "verbose",
   module: {
     rules: [
@@ -21,6 +28,7 @@ module.exports = {
       },
     ],
   },
+
   plugins: [
     new HtmlWebPackPlugin({
       template: "./src/client/views/index.html",

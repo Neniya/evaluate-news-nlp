@@ -16,10 +16,11 @@ function handleSubmit(event) {
       },
       body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
+    console.log(response);
     return response;
   };
   //console.log("::: Form Submitted :::")
-  postData("/sentiments", { article_url: formURL })
+  postData("sentiments", { article_url: formURL })
     .then((res) => res.json())
     .then(function (res) {
       let message =
