@@ -25,16 +25,13 @@ app.use(bodyParser.json());
 const cors = require("cors");
 app.use(cors());
 
-//console.log(__dirname);
-
 app.get("/", function (req, res) {
   res.sendFile("dist/index.html");
-  //res.sendFile(path.resolve("dist/index.html"));
 });
 
 // designates what port the app will listen to for incoming requests
 app.listen(8080, function () {
-  console.log("Example app listening on port 8080!");
+  console.log("App listening on port 8080!");
 });
 
 app.get("/test", function (req, res) {
@@ -53,8 +50,6 @@ getSentiments = async function (url = "") {
 
 app.post("/sentiments", async function (req, res) {
   const full_URL = `${baseURL}${API_KEY}&lang=en&url=${req.body.article_url}&model=general`;
-  console.log(full_URL);
   const newData = await getSentiments(full_URL);
-  console.log(newData);
   res.send(newData);
 });
