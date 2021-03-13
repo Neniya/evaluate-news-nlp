@@ -67,7 +67,7 @@ npm run start
 
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
-###Run unit tests
+### Run unit tests
 
 ```bash
 $ npm test
