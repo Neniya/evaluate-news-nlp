@@ -23,6 +23,7 @@
             placeholder="please write an article's URL"
           />
           <input
+            class="analyse"
             type="submit"
             value="Analyse"
             onclick="return Client.handleSubmit(event)"
@@ -35,7 +36,9 @@
         <div id="results"></div>
       </section>
     </main>
-
+    <footer>
+      <p>Made by Evgeniya Kotova, 2021</p>
+    </footer>
     <script>
       // Check that service workers are supported
       if ("serviceWorker" in navigator) {

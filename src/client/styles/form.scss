@@ -1,12 +1,23 @@
+%shared-property {
+  background-color: #8f3a3a77;
+  width: 50%;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
 form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
+  border: 1px solid #545454;
+  border-radius: 3px;
+  padding: 40px;
+  text-align: center;
 }
 
 input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
+  padding: 5px 20px;
+  width: 100%;
+  line-height: 16px;
+  margin: 10px 0;
+}
+.analyse {
+  @extend %shared-property;
 }
