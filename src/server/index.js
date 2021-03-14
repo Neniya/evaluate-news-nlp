@@ -7,7 +7,7 @@ var path = require("path");
 const express = require("express");
 //const mockAPIResponse = require("./mockAPI.js");
 
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key=";
 const API_KEY = process.env.API_KEY;
 
