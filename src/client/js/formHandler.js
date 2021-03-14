@@ -22,7 +22,7 @@ function handleSubmit(event) {
     });
     return response;
   };
-  postData("sentiments", { article_url: formURL })
+  postData("http://localhost:8081/sentiments", { article_url: formURL })
     .then((res) => res.json())
     .then(function (res) {
       let message =
