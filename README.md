@@ -48,14 +48,6 @@ Create API credentials on [MeaningCloud API](https://www.meaningcloud.com/develo
 API_KEY=YourAPIKey
 ```
 
-### Set up PORT
-
-In `.env` file define a port number in the variable named `PORT`. As below:
-
-```
-PORT = 8080
-```
-
 ### Run Local Server
 
 For running local server in the main directory of project run command:
