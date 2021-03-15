@@ -11,9 +11,7 @@ module.exports = {
     libraryTarget: "var",
     library: "Client",
   },
-  devServer: {
-    port: process.env.PORT,
-  },
+
   stats: "verbose",
   module: {
     rules: [

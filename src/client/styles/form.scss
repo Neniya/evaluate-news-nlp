@@ -21,3 +21,7 @@ input {
 .analyse {
   @extend %shared-property;
 }
+
+.analyse:hover {
+  cursor: pointer;
+}
